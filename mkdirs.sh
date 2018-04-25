@@ -1,11 +1,12 @@
 #!/bin/bash
 
-for i in $(seq 1 15); 
+for i in $(seq $1 $2); 
+do
+	dirname="$(printf "%02d\n" $i)"
+	mkdir -p $dirname; 
 
-do mkdir -p $i; 
-
-echo "# Problem $i" > $i/README.md
-echo "[https://projecteuler.net/problem=$i](https://projecteuler.net/problem=$i)" >> $i/README.md; 
+	echo "# Problem $i" > $dirname/README.md
+	echo "[https://projecteuler.net/problem=$i](https://projecteuler.net/problem=$i)" >> $dirname/README.md; 
 
 done
 
